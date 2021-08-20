@@ -16,18 +16,20 @@ LoginSection::LoginSection(QWidget *parent) :
         QDialog(parent),
         ui(new Ui::LoginSection) {
     ui->setupUi(this);
-    this->setWindowFlags(Qt::FramelessWindowHint);
-    ui->user_input->setTextMargins(5, 0, 0, 0);
-    ui->password_input->setTextMargins(5, 0, 0, 0);
+    this->setWindowFlags(Qt::FramelessWindowHint);//使用无系统边框的窗口模式
+    ui->user_input->setTextMargins(5, 0, 0, 0);//使输入框输入的字体位置观感舒服
+    ui->password_input->setTextMargins(5, 0, 0, 0);//使输入框输入的字体位置观感舒服
     ui->label_2->hide();
     ui->loading->hide();
     db = QSqlDatabase::addDatabase("QOCI");
     db.setHostName("192.168.196.132");
     db.setPort(1521);
-    db.setDatabaseName("lzy");
-//        db.setUserName("system");
-//        db.setPassword("manager");
-//        db.open();
+    db.setDatabaseName("user");
+//-------------------------------------------------
+//  db.setUserName("system");//登陆数据库用户名
+//  db.setPassword("manager");//登陆数据库密码
+//  db.open();//根据设置用户名和密码打开数据库
+//-------------------------------------------------
     m_move = false;
 
 }
